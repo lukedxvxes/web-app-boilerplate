@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 
 export const StyledHeader = styled(Box)({
@@ -15,4 +15,8 @@ export const StyledHeader = styled(Box)({
   '>div': {
     height: '100%',
   },
+});
+
+export const StyledHeading = styled(Heading)({
+  cursor: 'pointer',
 });
