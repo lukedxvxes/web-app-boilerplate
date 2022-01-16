@@ -27,7 +27,10 @@ function authenticateSchema(req, res, next) {
 function authenticate(req, res, next) {
   userService
     .authenticate(req.body)
-    .then((user) => res.json(user))
+    .then((user) => {
+      res.cookie("jwt", user.token);
+      res.json(user);
+    })
     .catch(next);
 }
 

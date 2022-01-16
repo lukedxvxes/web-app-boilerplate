@@ -1,7 +1,5 @@
-import { Button } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import { UserContext } from '../context/userContext';
-import { login } from '../auth/Login';
 
 export function Home() {
   const { user } = useContext(UserContext);

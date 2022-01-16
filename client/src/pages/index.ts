@@ -1,4 +1,4 @@
 export * from './Home';
-export * from './Login';
+export * from './auth/Auth';
 export * from './Profile';
 export * from './NotFound';
