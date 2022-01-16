@@ -17,34 +17,20 @@ async function getById(id) {
 }
 
 async function create(params) {
-  // validate
-  if (await db.Post.findOne({ where: { topic: params.topic } })) {
-    throw 'Topic "' + params.topic + '" already exists';
-  }
-
-  // save user
+  // save post
   await db.Post.create(params);
 }
 
-async function update(id, userid, params) {
+async function update(id, params) {
   const post = await getPost(id);
-  const userOwnsThisPost = post.dataValues.requestUserId === userid.toString();
-  if (userOwnsThisPost) {
-    Object.assign(post, params);
-    await post.save();
-    return post.get();
-  } else {
-    throw "You cant update this post";
-  }
+  Object.assign(post, params);
+  await post.save();
+  return post.get();
 }
 
-async function _delete(id, userid) {
+async function _delete(id) {
   const post = await getPost(id);
-  if (post.dataValues.requestUser === userid.toString()) {
-    await post.destroy();
-  } else {
-    throw "You cant delete this post";
-  }
+  await post.destroy();
 }
 
 // helper functions

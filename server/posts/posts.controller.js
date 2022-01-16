@@ -1,15 +1,22 @@
 const express = require("express");
-const router = express.Router();
+const jwt = require("express-jwt");
 const Joi = require("joi");
+
 const validateRequest = require("_middleware/validate-request");
 const authorize = require("_middleware/authorize");
+const authorizeForPost = require("../_middleware/authorizeForPost");
+
 const postService = require("./posts.service");
+
+const { secret } = require("config.json");
+
+const router = express.Router();
 
 router.post("/create", createSchema, authorize(), createPost);
 router.get("/", authorize(), getAll);
 router.get("/:id", authorize(), getById);
-router.put("/:id/:userid", authorize(), updateSchema, update);
-router.delete("/:id/:userid", authorize(), _delete);
+router.put("/:id", authorizeForPost(), updateSchema, update);
+router.delete("/:id", authorizeForPost(), _delete);
 
 module.exports = router;
 
@@ -54,15 +61,17 @@ function getById(req, res, next) {
 }
 
 function update(req, res, next) {
+  jwt({ secret, algorithms: ["HS256"] });
+
   postService
-    .update(req.params.id, req.params.userid, req.body)
-    .then((user) => res.json(user))
+    .update(req.params.id, req.body)
+    .then((post) => res.json(post))
     .catch(next);
 }
 
 function _delete(req, res, next) {
   postService
-    .delete(req.params.id, req.params.userid)
+    .delete(req.params.id)
     .then(() => res.json({ message: "Post deleted successfully" }))
     .catch(next);
 }

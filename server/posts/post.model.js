@@ -11,5 +11,10 @@ function model(sequelize) {
     bookedDate: { type: DataTypes.DATE, allowNull: true },
   };
 
-  return sequelize.define("Post", attributes);
+  const options = {
+    defaultScope: {},
+    scopes: {},
+  };
+
+  return sequelize.define("Post", attributes, options);
 }
