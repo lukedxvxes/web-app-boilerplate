@@ -9,4 +9,6 @@
 - `npm run dev` in the root folder will boot up both the server and client.
 - The server will automatically create a database if one doesnt exist, you will need to update the config to match local env
 
+- backend has crud endpoints setup for Posts and Users
+
 `npm run dev`
