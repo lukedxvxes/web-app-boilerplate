@@ -5,7 +5,7 @@ export const metrics = {
   globalPadding: 20,
   globalMargin: 20,
 
-  lunchtalks: {
+  bpapp: {
     baseFontSize: 16,
     textMargin: 32,
     mainContentWidth: 1250 as const,

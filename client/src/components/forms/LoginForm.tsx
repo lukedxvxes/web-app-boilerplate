@@ -45,7 +45,7 @@ export function LoginForm({ setUser }: { setUser: any }) {
         setUser(user);
         toast({
           title: `Hi ${user.firstName}, login successful.`,
-          description: 'Welcome to Lunch and Learn.',
+          description: 'Welcome.',
           status: 'success',
           duration: 9000,
           isClosable: true,

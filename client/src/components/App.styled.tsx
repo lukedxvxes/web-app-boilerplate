@@ -4,8 +4,8 @@ import { metrics } from '../__styling/metrics';
 import { calcRem } from '../helper/caclRem';
 
 const headerHeight = '80px';
-const appMaxWidth = metrics.lunchtalks.mainContentWidth;
-const appContainerPadding = calcRem(metrics.lunchtalks.margins.md);
+const appMaxWidth = metrics.bpapp.mainContentWidth;
+const appContainerPadding = calcRem(metrics.bpapp.margins.md);
 
 export const StyledApp = styled('div')({
   display: 'grid',

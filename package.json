@@ -1,5 +1,5 @@
 {
-  "name": "lunchtalks",
+  "name": "bpapp",
   "version": "1.0.0",
   "description": "- front end: react typescript snowpack emotion chakra react-router-dom - back end: node",
   "main": "index.js",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/lukedxvxes/web-app-boilerplate/issues"
   },
-  "homepage": "https://github.com/lukedxvxes/web-app-boilerplate#readme"
+  "homepage": "https://github.com/lukedxvxes/web-app-boilerplate#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
 }

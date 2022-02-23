@@ -14,8 +14,6 @@ import { useCookies } from 'react-cookie';
 
 interface AppProps {}
 
-const queryClient = new QueryClient();
-
 function App({}: AppProps) {
   const [user, setUser] = useState(null);
   const providerUser = useMemo(() => ({ user, setUser }), [user, setUser]);
@@ -44,7 +42,6 @@ function App({}: AppProps) {
       return currentUser;
     },
     {
-      // Refetch the data every second
       enabled: !!cookies.jwt,
     },
   );
